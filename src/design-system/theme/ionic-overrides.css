@@ -1,0 +1,62 @@
+ion-content {
+  --background: var(--color-background);
+  --color: var(--color-text-primary);
+}
+
+ion-toolbar {
+  --background: var(--color-surface);
+  --color: var(--color-text-primary);
+  --border-color: var(--color-border);
+}
+
+ion-tab-bar {
+  --background: transparent;
+  --border: 0;
+}
+
+ion-tabs {
+  position: relative;
+  background: transparent;
+}
+
+ion-tab-button {
+  --color: var(--color-text-primary);
+  --color-selected: var(--color-text-primary);
+}
+
+ion-card {
+  --background: var(--color-surface);
+  margin: 0;
+  border-radius: var(--radius-card);
+  box-shadow: none;
+}
+
+ion-item {
+  --background: transparent;
+  --border-color: var(--color-border);
+  --color: var(--color-text-primary);
+  --padding-start: var(--space-4);
+  --inner-padding-end: var(--space-4);
+}
+
+ion-searchbar {
+  --background: var(--color-surface-muted);
+  --border-radius: var(--radius-input);
+  --box-shadow: none;
+  --color: var(--color-text-primary);
+  --placeholder-color: var(--color-text-muted);
+  padding-inline: 0;
+}
+
+ion-modal {
+  --border-radius: var(--radius-modal);
+  --box-shadow: var(--elevation-4);
+}
+
+ion-badge {
+  border-radius: var(--radius-badge);
+}
+
+.ion-page {
+  background: var(--color-background);
+}

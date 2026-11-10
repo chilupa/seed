@@ -1,0 +1,23 @@
+.app-button {
+  --border-radius: var(--radius-button);
+  --box-shadow: none;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-normal);
+  min-height: 44px;
+  margin: 0;
+  position: relative;
+}
+
+.app-button--primary {
+  --box-shadow: var(--elevation-1);
+}
+
+.app-button__spinner {
+  position: absolute;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.app-button__label--hidden {
+  opacity: 0;
+}

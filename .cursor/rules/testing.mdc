@@ -1,0 +1,30 @@
+---
+description: Vitest and React Testing Library standards for unit and component tests
+globs:
+  - "**/*.{test,spec}.{ts,tsx}"
+  - "**/setupTests.ts"
+  - "e2e/**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Testing
+
+## Stack and intent
+- Use Vitest + React Testing Library.
+- Test behavior users can observe, not implementation details.
+- Focus coverage on critical business logic and shared design-system components.
+- Do not write filler tests only to raise coverage metrics.
+
+## Coverage expectations
+- Cover loading, success, error, and disabled states when relevant.
+- Add a regression test for every bug fix.
+- Mock API calls and Capacitor native dependencies.
+- Prefer shared mocks in `setupTests` for Capacitor plugins.
+
+## Style
+- Prefer accessible queries: `getByRole`, `getByLabelText`, `getByText`.
+- Keep tests deterministic and isolated.
+- Assert outcomes, not internal store/hook wiring.
+- Colocate unit tests next to the unit under test (`ComponentName.test.tsx`).
+- Keep Playwright e2e focused on critical user journeys, not exhaustive UI permutations.
+- Fail tests on unexpected console errors when practical.

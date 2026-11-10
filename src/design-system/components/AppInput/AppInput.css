@@ -1,0 +1,66 @@
+.app-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.app-input__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-snug);
+}
+
+.app-input__field {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding-inline: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+  background: var(--color-surface-muted);
+}
+
+.app-input--error .app-input__field {
+  border-color: var(--color-danger);
+}
+
+.app-input__field:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+.app-input--error .app-input__field:focus-within {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-danger) 25%, transparent);
+}
+
+.app-input__control {
+  width: 100%;
+  min-height: 48px;
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  --padding-start: 0;
+  --padding-end: 0;
+  --background: transparent;
+  /* Disable Ionic's default bottom highlight underline */
+  --highlight-height: 0;
+  --highlight-color-focused: transparent;
+  --highlight-color-valid: transparent;
+  --highlight-color-invalid: transparent;
+  --border-width: 0;
+  --border-style: none;
+  --border-color: transparent;
+}
+
+.app-input__message {
+  display: block;
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.app-input__message--error {
+  color: var(--color-danger);
+}

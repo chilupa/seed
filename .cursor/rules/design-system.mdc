@@ -1,0 +1,56 @@
+---
+description: Design tokens, theming, and reusable UI component standards
+alwaysApply: true
+---
+
+# Design System
+
+## Tokens and theming
+- Drive visuals from `src/design-system/tokens/` (colors, typography, spacing, radius, shadows, breakpoints).
+- Style with CSS variables. Do not hardcode design values in components.
+- Support light and dark themes through token overrides.
+- Customize branding (name, colors, font, tabs) via `src/app.config.ts`.
+
+## Typography and sizing
+- Never hardcode font sizes (`14px`, `1.25rem`, etc.) in components or feature styles.
+- Use typography tokens only: `--font-size-*`, `--font-weight-*`, `--line-height-*`.
+- Icon sizes must use `--icon-size-*` (or `AppIcon` size props that resolve to those tokens).
+- Do not override icon/text size with one-off `font-size` in CSS unless assigning a token.
+
+## Type hierarchy
+Keep page text ranked so chrome and content do not compete. Prefer these classes/tokens:
+
+1. `.page-hero-title` → `--font-size-2xl` — rare hero copy only (e.g. Home). May exceed the app bar.
+2. `AppHeader` title → `--font-size-xl` — page/app bar name. Top chrome for normal screens.
+3. `.section-title` / `AppEmptyState` title / `AppModal` title → `--font-size-lg` — in-page or overlay headings below the app bar.
+4. `.section-label` / `AppCard` title → `--font-size-md` / semibold — group labels like Preferences, Account, Appearance.
+5. List/row titles (`AppListItem`) → `--font-size-md` / medium — primary row text.
+6. Supporting text → `--font-size-sm` or smaller — subtitles, helpers, captions.
+
+Component mapping:
+- `AppCard` title → same level as `.section-label` (`--font-size-md`)
+- `AppEmptyState` title → same level as `.section-title` (`--font-size-lg`)
+- `AppModal` title → same level as `.section-title` (`--font-size-lg`)
+
+Rules:
+- Do not make `.section-title` the same size as or larger than the app bar title.
+- Do not make group labels (`.section-label` / card titles) smaller than the list row titles under them.
+- Do not use `.section-title` for group labels; use `.section-label`.
+- Do not use `.page-hero-title` for ordinary section headings.
+- Do not size in-page headings at `--font-size-xl` or above unless they are the app bar or an intentional `.page-hero-title`.
+
+## Components
+- Reuse existing design-system components before creating new ones.
+- Keep buttons, cards, inputs, headers, modals, and tab navigation consistent.
+- Wrap Ionic primitives; do not reimplement Ionic behavior.
+- Folder pattern: `ComponentName/ComponentName.tsx`, stylesheet, `index.ts`.
+- Avoid one-off styles and inconsistent variants.
+
+## Icons and layout
+- Import icons only from `src/design-system/icons` (Ionicons registry).
+- Never use emoji or arbitrary Unicode as interface icons.
+- Use outline/filled icon pairs for inactive/active tab states when needed.
+- Design mobile-first and responsive using token breakpoints.
+- Prefer semantic structure and accessible labels on interactive controls.
+- Export public components through barrel files (`index.ts`) when useful.
+- Bridge brand tokens to Ionic CSS variables so Ionic components stay on-brand.

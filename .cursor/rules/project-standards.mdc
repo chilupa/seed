@@ -1,0 +1,40 @@
+---
+description: Core architecture and engineering standards for the Ionic React starter
+alwaysApply: true
+---
+
+# Project Standards
+
+## TypeScript
+- Keep `strict` mode on. Avoid `any`; prefer precise types and narrow unknowns.
+- Prefer named exports.
+- Naming: `PascalCase` components/types, `camelCase` hooks/functions, `SCREAMING_SNAKE` constants.
+
+## Architecture
+- Organize by feature under `src/features/<feature>/`.
+- Separate concerns:
+  - UI → pages/components
+  - Business logic → hooks/stores
+  - I/O → `src/services/`
+- Keep components single-purpose and small.
+- Put shared UI in `src/design-system/`, not inside a feature.
+- Prefer reuse over new abstractions. Avoid duplicate logic.
+- Do not add dependencies unless the need is clear and lasting.
+- Prefer explicit, readable code over clever indirection.
+
+## State
+- **Zustand** for shared client state (auth, theme, preferences).
+- **TanStack Query** for server/async cache (fetch, cache, retries, invalidation).
+- Do not mirror remote data in Zustand unless it is true client-only state.
+
+## API and configuration
+- Use centralized API services (`src/services/api`) with shared error handling.
+- Never hardcode secrets, tokens, or environment-specific URLs.
+- Read config from `VITE_*` env vars.
+- Keep branding and navigation tabs in `src/app.config.ts`.
+- Keep `App.tsx` as a thin shell; route and feature logic live elsewhere.
+
+## Navigation
+- Tab routes stay config-driven; non-tab screens (auth, settings) stay outside the tab shell.
+- Use React Router `element` routes and `useNavigate`.
+- Preserve tab state when switching tabs; support nested routes under `/tabs/*`.

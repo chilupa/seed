@@ -1,0 +1,15 @@
+.app-header--transparent .app-header__toolbar {
+  --background: transparent;
+  --border-width: 0;
+}
+
+.app-header__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.app-header__back {
+  min-width: 44px;
+  min-height: 44px;
+}

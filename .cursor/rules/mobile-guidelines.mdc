@@ -1,0 +1,32 @@
+---
+description: Capacitor and native mobile UX guidelines for iOS and Android
+globs:
+  - "capacitor.config.ts"
+  - "src/services/native/**/*"
+  - "src/utils/platform.ts"
+  - "src/utils/haptics.ts"
+  - "src/utils/storage.ts"
+  - "src/hooks/useAndroidBackButton.ts"
+  - "src/hooks/useNetworkStatus.ts"
+alwaysApply: false
+---
+
+# Mobile Guidelines
+
+## Native UX
+- Respect iOS and Android safe areas (`env(safe-area-inset-*)`).
+- Handle keyboard so focused inputs remain visible.
+- Support Android hardware back through the shared back-button hook.
+- Use touch-friendly controls (roughly ≥ 44px targets).
+
+## Capacitor practices
+- Encapsulate Capacitor APIs in reusable utilities/services.
+- Avoid calling plugins directly from feature UI.
+- Prefer shared cross-platform behavior; branch by platform only when required.
+- Plan for offline and poor-network states (banners, cached content, disabled actions).
+
+## Verification
+- Validate status bar, keyboard, back navigation, and safe areas on both iOS and Android.
+- After native plugin or config changes, rebuild web assets and run `cap sync` before device checks.
+- Treat haptics and status-bar updates as best-effort; never block core UX if a plugin fails.
+- Persist only appropriate preferences via Capacitor Preferences (theme, settings), never secrets in plain storage without a deliberate security design.
