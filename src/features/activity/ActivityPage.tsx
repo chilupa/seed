@@ -9,6 +9,7 @@ import {
   AppHeader,
   AppListItem,
   AppToast,
+  TextHeading,
 } from '../../design-system';
 
 const initialItems = [
@@ -49,7 +50,9 @@ export function ActivityPage(): ReactElement {
       <IonContent fullscreen>
         <div className="page-container stack-lg">
           <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
-            <h2 className="section-title">Updates</h2>
+            <TextHeading level={2} className="section-title">
+              Updates
+            </TextHeading>
             <AppBadge color={unreadCount > 0 ? 'danger' : 'success'}>
               {unreadCount > 0 ? `${unreadCount} new` : 'All caught up'}
             </AppBadge>

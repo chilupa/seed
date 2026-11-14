@@ -1,11 +1,7 @@
-import {
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
-} from '@ionic/react';
+import { IonCard, IonCardContent, IonCardHeader } from '@ionic/react';
 import type { ReactNode, ReactElement } from 'react';
+
+import { TextHeading } from '../TextHeading';
 
 import './AppCard.css';
 
@@ -40,10 +36,12 @@ export function AppCard({
     >
       {title || subtitle ? (
         <IonCardHeader>
-          {title ? <IonCardTitle className="app-card__title">{title}</IonCardTitle> : null}
-          {subtitle ? (
-            <IonCardSubtitle className="app-card__subtitle">{subtitle}</IonCardSubtitle>
+          {title ? (
+            <TextHeading level={3} className="app-card__title">
+              {title}
+            </TextHeading>
           ) : null}
+          {subtitle ? <p className="app-card__subtitle">{subtitle}</p> : null}
         </IonCardHeader>
       ) : null}
       <IonCardContent className="app-card__content">{children}</IonCardContent>

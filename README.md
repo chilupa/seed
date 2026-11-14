@@ -1,6 +1,114 @@
-# Ionic React Starter Template
+# Seed
 
 Production-minded Ionic React + Capacitor starter with a centralized design system, config-driven navigation, feature-based architecture, and demo screens you can replace for each new app.
+
+## Create a new app from this template
+
+### 1. Copy the template
+
+```bash
+# From GitHub (replace with your template repo URL)
+npx degit your-org/seed-starter my-new-app
+cd my-new-app
+
+# Or clone and detach from the template remote
+git clone https://github.com/your-org/seed-starter.git my-new-app
+cd my-new-app
+rm -rf .git
+git init
+```
+
+### 2. Install and run
+
+```bash
+npm install
+cp .env.example .env
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173).
+
+### 3. Rename the app
+
+Update these identity fields for your product:
+
+| File | What to change |
+| ---- | -------------- |
+| `package.json` | `name`, `description` |
+| `src/app.config.ts` | `appName`, brand colors, font, logo, `defaultTheme`, `defaultTab`, `tabs` |
+| `capacitor.config.ts` | `appId` (e.g. `com.yourcompany.appname`), `appName` |
+| `index.html` | `<title>`, Apple web app title |
+| `public/manifest.json` | App name / short name (if present) |
+| `.env` | `VITE_API_BASE_URL`, `VITE_APP_ENV` |
+
+Minimal branding pass:
+
+```ts
+// src/app.config.ts
+export const appConfig: AppConfig = {
+  appName: 'My App',
+  brand: {
+    primaryColor: '#2563eb',
+    secondaryColor: '#0f766e',
+    fontFamily: "'Source Sans 3', 'Segoe UI', sans-serif",
+    logoSrc: '/favicon.png',
+  },
+  defaultTheme: 'system',
+  defaultTab: 'home',
+  tabs: [
+    // keep, rename, or replace these tabs for your product
+  ],
+};
+```
+
+```ts
+// capacitor.config.ts
+const config: CapacitorConfig = {
+  appId: 'com.yourcompany.myapp',
+  appName: 'My App',
+  webDir: 'dist',
+  // ...
+};
+```
+
+### 4. Replace demo screens with your features
+
+Demo features live under `src/features/` (home, explore, create, activity, profile, auth, settings, showcase). For a real app:
+
+1. Keep the shell: `src/app/`, `src/design-system/`, `src/navigation/`, `src/store/`, `src/services/`.
+2. Edit or delete demo pages you do not need.
+3. Add your features as `src/features/<feature>/`.
+4. Wire tab routes in `src/app.config.ts` + `src/navigation/TabNavigation.tsx`.
+5. Wire non-tab screens in `src/navigation/AppRouter.tsx`.
+6. Point API calls at your backend via `.env` (`VITE_API_BASE_URL`).
+
+Suggested first cuts for a production app:
+
+- Remove or hide `/showcase` once you are done exploring components.
+- Replace Home / Explore / Activity content with your real screens.
+- Keep auth, settings, and profile as starting points or rewrite them.
+
+### 5. Optional: native iOS / Android
+
+```bash
+npm install @capacitor/ios @capacitor/android
+npx cap add ios
+npx cap add android
+npm run cap:sync
+npm run ios      # opens Xcode
+npm run android  # opens Android Studio
+```
+
+After renaming `appId` / `appName`, re-sync before shipping store builds.
+
+### 6. Ship checklist
+
+- [ ] App name, colors, and tabs set in `app.config.ts`
+- [ ] Capacitor `appId` is unique and final
+- [ ] `.env` points at the correct API
+- [ ] Demo / showcase routes removed or gated
+- [ ] `npm run build` and `npm run test:unit` pass
+- [ ] Icons/splash updated for store builds (Capacitor assets)
 
 ## Stack
 
@@ -12,6 +120,8 @@ Production-minded Ionic React + Capacitor starter with a centralized design syst
 - CSS variables + SCSS
 
 ## Quick start
+
+Already using a checked-out copy of the template?
 
 ```bash
 npm install
@@ -147,9 +257,9 @@ Unit tests cover key design-system components. Prefer Testing Library queries th
 
 ## Conventions
 
-See `.cursor/rules/project-conventions.mdc` for agent and contributor rules:
+See `.cursor/rules/` for agent and contributor rules (`project-standards.mdc`, `design-system.mdc`, `testing.mdc`, `mobile-guidelines.mdc`):
 
 - Feature-based folders
-- Token-driven styling
+- Token-driven styling and type hierarchy
 - Centralized icons
 - No business logic dumped into `App.tsx`

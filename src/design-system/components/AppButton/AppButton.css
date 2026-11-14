@@ -1,6 +1,7 @@
 .app-button {
   --border-radius: var(--radius-button);
   --box-shadow: none;
+  font-size: var(--font-size-body1);
   font-weight: var(--font-weight-semibold);
   letter-spacing: var(--letter-spacing-normal);
   min-height: 44px;

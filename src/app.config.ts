@@ -5,10 +5,12 @@ import type { AppConfig } from './types/app-config';
  * Customize this file per application without touching design-system components.
  */
 export const appConfig: AppConfig = {
-  appName: 'Ionic Starter',
+  appName: 'Seed',
   brand: {
-    primaryColor: '#2563eb',
-    secondaryColor: '#0f766e',
+    // Modern product: ink blue + soft cyan
+    // applyBrandTheme derives shade/tint/contrast/focus ring.
+    primaryColor: '#1D4ED8',
+    secondaryColor: '#0891B2',
     fontFamily: "'Source Sans 3', 'Segoe UI', sans-serif",
     logoSrc: '/favicon.png',
   },

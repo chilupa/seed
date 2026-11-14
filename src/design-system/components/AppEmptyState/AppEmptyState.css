@@ -19,7 +19,7 @@
 
 .app-empty-state__title {
   margin: 0;
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-body1);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
 }
@@ -28,7 +28,7 @@
   margin: 0;
   max-width: 28ch;
   color: var(--color-text-secondary);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-body2);
 }
 
 .app-empty-state__action {

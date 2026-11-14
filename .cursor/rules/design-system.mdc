@@ -13,31 +13,40 @@ alwaysApply: true
 
 ## Typography and sizing
 - Never hardcode font sizes (`14px`, `1.25rem`, etc.) in components or feature styles.
-- Use typography tokens only: `--font-size-*`, `--font-weight-*`, `--line-height-*`.
-- Icon sizes must use `--icon-size-*` (or `AppIcon` size props that resolve to those tokens).
+- Text uses only three size tokens:
+  - `--font-size-body1` → 16px
+  - `--font-size-body2` → 14px
+  - `--font-size-caption` → 12px
+- Do not introduce `--font-size-lg`, `--font-size-xl`, or other display sizes.
+- Use typography tokens only: `--font-size-body1|body2|caption`, `--font-weight-*`, `--line-height-*`.
+- Icon sizes must use `--icon-size-*` (or `AppIcon` size props that resolve to those tokens). Icons may be larger than text.
 - Do not override icon/text size with one-off `font-size` in CSS unless assigning a token.
+- Never use HTML headings (`h1`–`h6`) in app or design-system UI. Use `p`/`span` with typography classes.
+- For section/page titles, use `TextHeading` (`role="heading"` + `aria-level`) so screen readers keep an outline.
+  - Level 1: page hero / primary page identity
+  - Level 2: section titles and group labels
+  - Level 3: nested titles (e.g. card titles)
+- Prefer utilities: `.text-body1`, `.text-body2`, `.text-caption` (+ `.weight-medium` / `.weight-semibold`).
+- Role helpers (`.section-title`, `.section-label`, `.page-hero-title`, `.section-subtitle`) are allowed; they are built on body1/body2 tokens.
+- Do not use `IonCardTitle` / `IonCardSubtitle`; render typography nodes with `.app-card__title` / `.app-card__subtitle`.
+- Inside `IonLabel`, prefer `div`/`span` over `p` — Ionic `::slotted(p)` forces muted gray text.
+- Keep Ionic host type overrides in `ionic-overrides.css` (`ion-title`, `ion-button`, `ion-badge`, etc.) so host defaults stay on tokens.
 
 ## Type hierarchy
-Keep page text ranked so chrome and content do not compete. Prefer these classes/tokens:
+Rank text with weight and role, not bigger fonts:
 
-1. `.page-hero-title` → `--font-size-2xl` — rare hero copy only (e.g. Home). May exceed the app bar.
-2. `AppHeader` title → `--font-size-xl` — page/app bar name. Top chrome for normal screens.
-3. `.section-title` / `AppEmptyState` title / `AppModal` title → `--font-size-lg` — in-page or overlay headings below the app bar.
-4. `.section-label` / `AppCard` title → `--font-size-md` / semibold — group labels like Preferences, Account, Appearance.
-5. List/row titles (`AppListItem`) → `--font-size-md` / medium — primary row text.
-6. Supporting text → `--font-size-sm` or smaller — subtitles, helpers, captions.
-
-Component mapping:
-- `AppCard` title → same level as `.section-label` (`--font-size-md`)
-- `AppEmptyState` title → same level as `.section-title` (`--font-size-lg`)
-- `AppModal` title → same level as `.section-title` (`--font-size-lg`)
+1. App bar / hero / section titles → `--font-size-body1` + semibold (`.text-body1.weight-semibold` or `.section-title` / `.page-hero-title`)
+2. Group labels / card titles → `--font-size-body1` + semibold (`.section-label`, `.app-card__title`)
+3. List/row titles → `--font-size-body1` + medium
+4. Supporting copy → `--font-size-body2` (`.text-body2`, `.section-subtitle`)
+5. Dense meta UI → `--font-size-caption` (`.text-caption`)
 
 Rules:
-- Do not make `.section-title` the same size as or larger than the app bar title.
-- Do not make group labels (`.section-label` / card titles) smaller than the list row titles under them.
+- All text is capped at `--font-size-body1` (16px). Do not size text larger.
+- Differentiate same-size levels with weight, not font size.
+- Do not make group labels smaller than the list row titles under them.
 - Do not use `.section-title` for group labels; use `.section-label`.
-- Do not use `.page-hero-title` for ordinary section headings.
-- Do not size in-page headings at `--font-size-xl` or above unless they are the app bar or an intentional `.page-hero-title`.
+- Do not use `.page-hero-title` for ordinary section titles.
 
 ## Components
 - Reuse existing design-system components before creating new ones.

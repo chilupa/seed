@@ -60,3 +60,45 @@ ion-badge {
 .ion-page {
   background: var(--color-background);
 }
+
+/* Neutralize Ionic typography.css heading defaults. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: var(--font-size-body1);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+}
+
+small {
+  font-size: var(--font-size-caption);
+}
+
+/* Host-level Ionic type that still ships hardcoded rem sizes. */
+ion-title,
+ion-card-title {
+  font-size: var(--font-size-body1);
+  font-weight: var(--font-weight-semibold);
+}
+
+ion-card-subtitle,
+ion-note {
+  font-size: var(--font-size-body2);
+}
+
+ion-badge {
+  font-size: var(--font-size-caption);
+}
+
+ion-button {
+  font-size: var(--font-size-body1);
+}
+
+ion-searchbar {
+  font-size: var(--font-size-body1);
+}

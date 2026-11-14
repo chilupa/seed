@@ -17,6 +17,7 @@ import {
   AppCard,
   AppHeader,
   AppListItem,
+  TextHeading,
 } from '../../design-system';
 import { useNetworkStatus } from '../../hooks';
 import { hapticImpact } from '../../utils/haptics';
@@ -75,7 +76,9 @@ export function HomePage(): ReactElement {
           <section>
             <div className="stack">
               <div>
-                <h1 className="page-hero-title">Build once, ship everywhere</h1>
+                <TextHeading level={1} className="page-hero-title">
+                  Build once, ship everywhere
+                </TextHeading>
                 <p className="section-subtitle">
                   A production-minded Ionic React starter with a shared design system and
                   config-driven navigation.
@@ -121,7 +124,9 @@ export function HomePage(): ReactElement {
           </section>
 
           <section>
-            <h2 className="section-title">Continue exploring</h2>
+            <TextHeading level={2} className="section-title">
+              Continue exploring
+            </TextHeading>
             <AppListItem
               title="Explore"
               subtitle="Browse sample collections and search"

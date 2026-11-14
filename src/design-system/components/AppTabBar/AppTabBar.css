@@ -81,7 +81,7 @@ body.dark .app-tab-bar--glass {
   border-radius: var(--radius-full);
   background: var(--color-danger);
   color: var(--color-danger-contrast);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-caption);
   font-weight: var(--font-weight-semibold);
   line-height: 14px;
   text-align: center;
@@ -126,5 +126,5 @@ body.dark .app-tab-bar--glass {
 .app-tab-bar__profile-wrap .app-avatar {
   width: calc(var(--icon-size-md) - 4px);
   height: calc(var(--icon-size-md) - 4px);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-caption);
 }

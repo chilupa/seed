@@ -15,3 +15,4 @@ export * from './AppSearchBar';
 export * from './AppSelect';
 export * from './AppTabBar';
 export * from './AppToast';
+export * from './TextHeading';

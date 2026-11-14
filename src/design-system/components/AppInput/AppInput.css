@@ -6,7 +6,7 @@
 }
 
 .app-input__label {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-body2);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
   line-height: var(--line-height-snug);
@@ -39,7 +39,7 @@
 .app-input__control {
   width: 100%;
   min-height: 48px;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-body1);
   color: var(--color-text-primary);
   --padding-start: 0;
   --padding-end: 0;
@@ -57,7 +57,7 @@
 .app-input__message {
   display: block;
   margin: 0;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-caption);
   color: var(--color-text-muted);
 }
 

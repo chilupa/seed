@@ -12,6 +12,8 @@ export interface AppBannerProps {
   message?: string;
   tone?: AppBannerTone;
   action?: ReactNode;
+  /** When set, shows a trailing dismiss (X) button. Parent controls visibility. */
+  onDismiss?: () => void;
 }
 
 const toneIcons: Record<AppBannerTone, IconName> = {
@@ -21,7 +23,13 @@ const toneIcons: Record<AppBannerTone, IconName> = {
   error: 'alertCircle',
 };
 
-export function AppBanner({ title, message, tone = 'info', action }: AppBannerProps): ReactElement {
+export function AppBanner({
+  title,
+  message,
+  tone = 'info',
+  action,
+  onDismiss,
+}: AppBannerProps): ReactElement {
   return (
     <div className={`app-banner app-banner--${tone}`} role="status">
       <div className="app-banner__icon">
@@ -32,6 +40,16 @@ export function AppBanner({ title, message, tone = 'info', action }: AppBannerPr
         {message ? <p className="app-banner__message">{message}</p> : null}
       </div>
       {action ? <div className="app-banner__action">{action}</div> : null}
+      {onDismiss ? (
+        <button
+          type="button"
+          className="app-banner__dismiss"
+          aria-label="Dismiss"
+          onClick={onDismiss}
+        >
+          <AppIcon name="closeOutline" size="sm" />
+        </button>
+      ) : null}
     </div>
   );
 }

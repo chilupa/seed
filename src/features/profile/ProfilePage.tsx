@@ -2,7 +2,14 @@ import { IonContent, IonPage, IonToggle } from '@ionic/react';
 import type { ReactElement } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { AppAvatar, AppButton, AppCard, AppHeader, AppListItem } from '../../design-system';
+import {
+  AppAvatar,
+  AppButton,
+  AppCard,
+  AppHeader,
+  AppListItem,
+  TextHeading,
+} from '../../design-system';
 import { useAuthStore, usePreferencesStore, useThemeStore } from '../../store';
 
 export function ProfilePage(): ReactElement {
@@ -27,14 +34,18 @@ export function ProfilePage(): ReactElement {
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
               <AppAvatar name={displayName} size="lg" />
               <div>
-                <h2 className="section-title">{displayName}</h2>
+                <TextHeading level={1} className="section-title">
+                  {displayName}
+                </TextHeading>
                 <p className="section-subtitle">{displayEmail}</p>
               </div>
             </div>
           </AppCard>
 
           <section>
-            <h3 className="section-label">Preferences</h3>
+            <TextHeading level={2} className="section-label">
+              Preferences
+            </TextHeading>
             <AppListItem
               title="Dark mode"
               subtitle={mode === 'dark' ? 'On' : mode === 'light' ? 'Off' : 'Follow system'}
@@ -68,7 +79,9 @@ export function ProfilePage(): ReactElement {
           </section>
 
           <section>
-            <h3 className="section-label">Account</h3>
+            <TextHeading level={2} className="section-label">
+              Account
+            </TextHeading>
             <AppListItem
               title="Settings"
               subtitle="Branding notes, theme, and notifications"

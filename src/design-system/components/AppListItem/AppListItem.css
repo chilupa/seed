@@ -18,18 +18,29 @@
 
 .app-list-item__title {
   margin: 0;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-body1);
   font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
   color: var(--color-text-primary);
 }
 
 .app-list-item__subtitle {
   margin: var(--space-1) 0 0;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-body2);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-secondary);
+}
+
+/* Beat Ionic ion-label ::slotted(p) muted defaults if markup changes back to p */
+.app-list-item ion-label .app-list-item__title {
+  color: var(--color-text-primary);
+}
+
+.app-list-item ion-label .app-list-item__subtitle {
   color: var(--color-text-secondary);
 }
 
 .app-list-item__trailing {
   color: var(--color-text-muted);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-body2);
 }

@@ -44,36 +44,60 @@ a {
   gap: var(--section-gap);
 }
 
-/* In-page section headings: below app bar title */
-.section-title {
+/* Typography utilities — use these instead of h1–h6 */
+.text-body1 {
   margin: 0;
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: var(--letter-spacing-tight);
+  font-size: var(--font-size-body1);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
   color: var(--color-text-primary);
 }
 
-/* Page hero copy only (e.g. Home). Larger than the app bar on purpose. */
-.page-hero-title {
+.text-body2 {
   margin: 0;
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: var(--letter-spacing-tight);
-  color: var(--color-text-primary);
+  font-size: var(--font-size-body2);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-secondary);
 }
 
-/* Group labels: below section title, above list row titles */
+.text-caption {
+  margin: 0;
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-muted);
+}
+
+.text-body1.weight-medium,
+.text-body2.weight-medium,
+.text-caption.weight-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.text-body1.weight-semibold,
+.text-body2.weight-semibold,
+.text-caption.weight-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Role helpers built on the type scale */
+.section-title,
+.page-hero-title,
 .section-label {
   margin: 0;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-body1);
   font-weight: var(--font-weight-semibold);
   letter-spacing: var(--letter-spacing-tight);
+  line-height: var(--line-height-snug);
   color: var(--color-text-primary);
 }
 
 .section-subtitle {
   margin: var(--space-1) 0 0;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-body2);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
   color: var(--color-text-secondary);
 }
 

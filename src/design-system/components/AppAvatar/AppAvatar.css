@@ -12,25 +12,25 @@
 .app-avatar--sm {
   width: 32px;
   height: 32px;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-caption);
 }
 
 .app-avatar--md {
   width: 44px;
   height: 44px;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-body2);
 }
 
 .app-avatar--lg {
   width: 64px;
   height: 64px;
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-body1);
 }
 
 .app-avatar--xl {
   width: 88px;
   height: 88px;
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-body1);
 }
 
 .app-avatar__initials {

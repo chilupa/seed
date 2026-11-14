@@ -45,8 +45,9 @@ export function AppListItem({
         </span>
       ) : null}
       <IonLabel>
-        <h2 className="app-list-item__title">{title}</h2>
-        {subtitle ? <p className="app-list-item__subtitle">{subtitle}</p> : null}
+        {/* Use div/span — Ionic ::slotted(p) forces muted text color */}
+        <div className="app-list-item__title">{title}</div>
+        {subtitle ? <div className="app-list-item__subtitle">{subtitle}</div> : null}
       </IonLabel>
       {trailing ? (
         <span slot="end" className="app-list-item__trailing">

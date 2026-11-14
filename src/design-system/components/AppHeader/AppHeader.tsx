@@ -52,7 +52,9 @@ export function AppHeader({
             </AppButton>
           </IonButtons>
         ) : null}
-        <IonTitle className="app-header__title">{title}</IonTitle>
+        <IonTitle className="app-header__title" role="heading" aria-level={1}>
+          {title}
+        </IonTitle>
         {endActions ? <IonButtons slot="end">{endActions}</IonButtons> : null}
       </IonToolbar>
     </IonHeader>

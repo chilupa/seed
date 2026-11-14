@@ -19,15 +19,18 @@ import {
   AppSearchBar,
   AppSelect,
   AppToast,
+  TextHeading,
 } from '../../design-system';
 
 export function ShowcasePage(): ReactElement {
   const [search, setSearch] = useState('');
   const [themeDemo, setThemeDemo] = useState('system');
   const [modalOpen, setModalOpen] = useState(false);
+  const [fullPageModalOpen, setFullPageModalOpen] = useState(false);
   const [toastOpen, setToastOpen] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(true);
   const [loading, setLoading] = useState(false);
 
   return (
@@ -36,7 +39,9 @@ export function ShowcasePage(): ReactElement {
       <IonContent fullscreen>
         <div className="page-container stack-lg">
           <section className="stack">
-            <h2 className="section-title">Buttons</h2>
+            <TextHeading level={2} className="section-title">
+              Buttons
+            </TextHeading>
             <AppButton fullWidth>Primary</AppButton>
             <AppButton variant="secondary" fullWidth>
               Secondary
@@ -63,7 +68,9 @@ export function ShowcasePage(): ReactElement {
           </section>
 
           <section className="stack">
-            <h2 className="section-title">Cards</h2>
+            <TextHeading level={2} className="section-title">
+              Cards
+            </TextHeading>
             <AppCard title="Standard card" subtitle="Default surface">
               Useful for dense page content without heavy elevation.
             </AppCard>
@@ -76,7 +83,9 @@ export function ShowcasePage(): ReactElement {
           </section>
 
           <section className="stack">
-            <h2 className="section-title">Inputs and search</h2>
+            <TextHeading level={2} className="section-title">
+              Inputs and search
+            </TextHeading>
             <AppInput label="Project name" helperText="Shown on your home dashboard." />
             <AppInput label="Email" type="email" errorText="Email is required." />
             <AppSearchBar value={search} onChange={setSearch} placeholder="Search components" />
@@ -108,7 +117,9 @@ export function ShowcasePage(): ReactElement {
           </section>
 
           <section className="stack">
-            <h2 className="section-title">Feedback</h2>
+            <TextHeading level={2} className="section-title">
+              Feedback
+            </TextHeading>
             <AppBanner tone="success" title="Saved" message="Your preferences were updated." />
             <AppBanner
               tone="warning"
@@ -116,11 +127,26 @@ export function ShowcasePage(): ReactElement {
               message="Some actions need a network."
             />
             <AppBanner tone="error" title="Request failed" message="Please try again in a moment." />
+            {bannerVisible ? (
+              <AppBanner
+                tone="info"
+                title="Dismissible banner"
+                message="Tap the X to hide this banner. Parent state controls visibility."
+                onDismiss={() => setBannerVisible(false)}
+              />
+            ) : (
+              <AppButton variant="outline" fullWidth onClick={() => setBannerVisible(true)}>
+                Show dismissible banner
+              </AppButton>
+            )}
             <AppButton variant="outline" onClick={() => setToastOpen(true)}>
               Show toast
             </AppButton>
             <AppButton variant="secondary" onClick={() => setModalOpen(true)}>
               Open modal
+            </AppButton>
+            <AppButton variant="outline" onClick={() => setFullPageModalOpen(true)}>
+              Open full page modal
             </AppButton>
             <AppButton variant="outline" onClick={() => setConfirmOpen(true)}>
               Show confirm
@@ -131,7 +157,9 @@ export function ShowcasePage(): ReactElement {
           </section>
 
           <section className="stack">
-            <h2 className="section-title">List, avatar, badge, icons</h2>
+            <TextHeading level={2} className="section-title">
+              List, avatar, badge, icons
+            </TextHeading>
             <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
               <AppAvatar name="Jordan Lee" />
               <AppAvatar name="Sam Ortiz" size="lg" />
@@ -173,6 +201,27 @@ export function ShowcasePage(): ReactElement {
           <p className="muted">
             Configure size and presentation while keeping header and footer patterns consistent.
           </p>
+        </AppModal>
+
+        <AppModal
+          isOpen={fullPageModalOpen}
+          onDidDismiss={() => setFullPageModalOpen(false)}
+          title="Full page modal"
+          size="fullscreen"
+          footer={
+            <AppButton fullWidth onClick={() => setFullPageModalOpen(false)}>
+              Done
+            </AppButton>
+          }
+        >
+          <div className="stack">
+            <p className="muted">
+              Use <code>size=&quot;fullscreen&quot;</code> when the flow needs a dedicated screen
+              without leaving the current route stack.
+            </p>
+            <AppInput label="Title" helperText="Example field inside a full page modal." />
+            <AppInput label="Notes" />
+          </div>
         </AppModal>
 
         <AppToast

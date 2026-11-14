@@ -13,7 +13,7 @@
   background: transparent;
   color: var(--color-text-secondary);
   font: inherit;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-body2);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-snug);
   cursor: pointer;

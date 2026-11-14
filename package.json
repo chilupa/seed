@@ -1,9 +1,9 @@
 {
-  "name": "ionic-starter-template",
+  "name": "seed-starter",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Production-ready Ionic React starter template with design system, Capacitor, and feature architecture",
+  "description": "Seed — production-ready Ionic React starter with design system, Capacitor, and feature architecture",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

@@ -34,17 +34,22 @@ export function AppModal({
   size = 'md',
   presentingElement,
 }: AppModalProps): ReactElement {
+  const isFullscreen = size === 'fullscreen';
+
   return (
     <IonModal
       isOpen={isOpen}
       onDidDismiss={onDidDismiss}
       className={`app-modal ${sizeClassMap[size]}`}
-      presentingElement={presentingElement}
+      // Card presentation fights a true full-page modal.
+      presentingElement={isFullscreen ? undefined : presentingElement}
     >
       {title ? (
         <IonHeader>
           <IonToolbar>
-            <IonTitle className="app-modal__title">{title}</IonTitle>
+            <IonTitle className="app-modal__title" role="heading" aria-level={2}>
+              {title}
+            </IonTitle>
             <IonButtons slot="end">
               <AppButton variant="text" aria-label="Close modal" onClick={onDidDismiss}>
                 <AppIcon name="closeOutline" />
